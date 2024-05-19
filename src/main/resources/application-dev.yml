@@ -1,0 +1,16 @@
+server:
+  port: 8081
+
+spring:
+  datasource:
+    username: root
+    password: Long050720
+    url: jdbc:mysql://localhost:3306/aurora?useSSL=true&userUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 50MB
+
+site:
+  filePath: /home/AuroraWebSite/uploads
+  public-host: 120.24.88.212:8081
