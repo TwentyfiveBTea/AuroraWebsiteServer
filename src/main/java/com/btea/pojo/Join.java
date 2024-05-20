@@ -12,7 +12,6 @@ import lombok.NoArgsConstructor;
  * @Date: 2024/05/17 16:07
  * @Description: 加入我们实体类
  */
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -32,7 +31,7 @@ public class Join {
     private String grade;
 
     @ApiModelProperty("电话")
-    private Integer phone;
+    private String phone;
 
     @ApiModelProperty("邮箱")
     private String email;
@@ -45,5 +44,9 @@ public class Join {
 
     @ApiModelProperty("介绍")
     private String introduce;
+
+    // 表示 /join 是否开启 -- 0 表关闭，1 表开启
+    @ApiModelProperty("状态")
+    private Integer state;
 }
 

@@ -10,7 +10,6 @@ import org.springframework.context.annotation.Configuration;
  * @Date: 2024/05/17/15:59
  * @Description: 用于解决springboot项目请求接口无效字符问题
  */
-
 @Configuration
 public class TomcatConfig {
     @Bean

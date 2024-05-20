@@ -7,12 +7,12 @@ import lombok.Getter;
  * @Date: 2024/05/17 18:43
  * @Description: 状态码枚举
  */
-
 @Getter
 public enum ResultCodeEnum {
     SUCCESS("true", 200, "操作成功"),
     UNAUTHORIZED("false", 401, "你要先登陆哦~"),
-    SERVERERROR("false", 500, "寄咯，后端炸了");
+    UNPROCESSABLEENTITY("false",422,"传入数据有误"),
+    SERVERERROR("false", 500, "寄咯，后端炸了，请联系相关人员");
 
     private final String success;
     private final int code;

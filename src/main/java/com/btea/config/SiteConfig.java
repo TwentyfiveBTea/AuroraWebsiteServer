@@ -10,11 +10,10 @@ import org.springframework.context.annotation.Configuration;
  * @Date: 2024/05/17 21:37
  * @Description: 官网配置类
  */
-
 @Configuration
 @Getter
 @ConfigurationProperties(prefix = "site")
-public class siteConfig {
+public class SiteConfig {
     /**
      * 文件存放目录，需要在配置文件自行设置
      * 注意：无默认值
@@ -29,12 +28,12 @@ public class siteConfig {
 
     @Value("${site.filePath}")
     public void setFilePath(String filePath) {
-        siteConfig.filePath = filePath;
+        SiteConfig.filePath = filePath;
     }
 
     @Value("${site.public-host:120.24.88.212}")
     public void setPublicHost(String publicHost) {
-        siteConfig.publicHost = publicHost;
+        SiteConfig.publicHost = publicHost;
     }
 
 }

@@ -3,13 +3,13 @@ package com.btea.result;
 import lombok.Data;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * @Author: TwentyFiveBTea
  * @Date: 2024/05/17 19:43
  * @Description: 封装统一响应体
  */
-
 @Data
 public class R implements Serializable {
     private int code;
@@ -41,9 +41,17 @@ public class R implements Serializable {
 
     public static R serverError(){
         R r = new R();
-        r.setCode(ResultCodeEnum.UNAUTHORIZED.getCode());
+        r.setCode(ResultCodeEnum.SERVERERROR.getCode());
         r.setMsg(ResultCodeEnum.SERVERERROR.getMsg());
         r.setData(ResultCodeEnum.SERVERERROR);
+        return r;
+    }
+
+    public static R unprocessableEntity(String data){
+        R r = new R();
+        r.setCode(ResultCodeEnum.UNPROCESSABLEENTITY.getCode());
+        r.setMsg(Unauthorized().getMsg());
+        r.setData(data);
         return r;
     }
 

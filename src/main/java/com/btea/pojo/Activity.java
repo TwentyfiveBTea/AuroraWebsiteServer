@@ -12,7 +12,6 @@ import lombok.NoArgsConstructor;
  * @Date: 2024/05/17 16:21
  * @Description: 活动实体类
  */
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
