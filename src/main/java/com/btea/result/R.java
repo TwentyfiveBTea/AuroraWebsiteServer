@@ -14,9 +14,9 @@ import java.util.List;
 public class R implements Serializable {
     private int code;
     private String msg;
-    private Object data;
+    private String data;
 
-    public R(int code, String msg, Object data) {
+    public R(int code, String msg, String data) {
         this.code = code;
         this.msg = msg;
         this.data = data;
@@ -27,15 +27,15 @@ public class R implements Serializable {
         return new R(200, "操作成功", null);
     }
 
-    public static R ok(Object object) {
-        return new R(200, "操作成功", object);
+    public static R ok(String str) {
+        return new R(200, "操作成功", str);
     }
 
     public static R Unauthorized(){
         R r = new R();
         r.setCode(ResultCodeEnum.UNAUTHORIZED.getCode());
         r.setMsg(ResultCodeEnum.UNAUTHORIZED.getMsg());
-        r.setData(ResultCodeEnum.UNAUTHORIZED);
+        r.setData(String.valueOf(ResultCodeEnum.UNAUTHORIZED));
         return r;
     }
 
@@ -43,7 +43,7 @@ public class R implements Serializable {
         R r = new R();
         r.setCode(ResultCodeEnum.SERVERERROR.getCode());
         r.setMsg(ResultCodeEnum.SERVERERROR.getMsg());
-        r.setData(ResultCodeEnum.SERVERERROR);
+        r.setData(String.valueOf(ResultCodeEnum.SERVERERROR));
         return r;
     }
 

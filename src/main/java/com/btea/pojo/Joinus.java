@@ -1,11 +1,15 @@
 package com.btea.pojo;
 
+import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.Date;
 
 /**
  * @Author: TwentyFiveBTea
@@ -15,7 +19,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Join {
+public class Joinus {
     // 数据库中主键自增
     @TableId(type = IdType.AUTO)
     @ApiModelProperty("主键id")
@@ -45,8 +49,9 @@ public class Join {
     @ApiModelProperty("介绍")
     private String introduce;
 
-    // 表示 /join 是否开启 -- 0 表关闭，1 表开启
-    @ApiModelProperty("状态")
-    private Integer state;
+    // 在字段添加时更新当前时间
+    @TableField(fill = FieldFill.INSERT)
+    @ApiModelProperty("创建时间")
+    private Date createTime;
 }
 

@@ -27,6 +27,9 @@ public class Activity {
     @ApiModelProperty("介绍")
     private String describes;
 
+    @ApiModelProperty("时间")
+    private String time;
+
     @ApiModelProperty("图片地址一")
     private String pictureOne;
 

@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class JoinDto {
+public class JoinusDto {
     // 姓名
     private String name;
 
