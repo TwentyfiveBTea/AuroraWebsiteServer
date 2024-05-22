@@ -14,7 +14,7 @@ import java.util.UUID;
  * @Date: 2024/05/17 20:13
  * @Description: 文件上传工具类
  */
-public class fileUtil {
+public class FileUtil {
     // 设置文件上传最大值（10MB）
     public static final int AVATAR_MAX_SIZE = 10 * 1024 * 1024;
 
@@ -74,66 +74,5 @@ public class fileUtil {
             throw new RuntimeException(e);
         }
         return fileName;
-    }
-
-    /**
-     * 上传多个文件
-     *
-     * @param files
-     * @param request
-     * @return 文件的新名字
-     */
-    public ArrayList<String> uploads(MultipartFile[] files, HttpServletRequest request) {
-
-        ArrayList<String> fileNames = new ArrayList<>();
-        ArrayList<String> error = new ArrayList<>();
-
-        // 循环单个上传
-        for (MultipartFile file : files) {
-            // 判断文件是否为空
-            if (!file.isEmpty()) {
-                error.add("上传的文件是空的嘞~");
-                return error;
-            }
-
-            // 判断文件大小是否超出限制
-            if (file.getSize() > AVATAR_MAX_SIZE) {
-                error.add("上传的文件太大啦！");
-                return error;
-            }
-
-            // 判断文件类型
-            String contentType = file.getContentType();
-            if (!AVATAR_TYPE.contains(contentType)) {
-                error.add("上传文件的类型不支持嘞~");
-                return error;
-            }
-
-            // 上传文件
-            String basePath = request.getServletContext().getRealPath("uploads");
-            File dir = new File(basePath);
-
-            if (!dir.exists()) {
-                dir.mkdirs();
-            }
-
-            // 获取文件的名称，用 Aurora + UUID 组成一个新字符串作为文件名
-            String originalFilename = file.getOriginalFilename();
-            int index = originalFilename.lastIndexOf(".");
-            String suffix = originalFilename.substring(index);
-            String fileName = "Aurora" + UUID.randomUUID() + suffix;
-            File dest = new File(dir, fileName);
-
-            // 将参数file中的数据写入空文件中
-            try {
-                file.transferTo(dest);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-
-            fileNames.add(fileName);
-            System.out.println(fileNames);
-        }
-        return fileNames;
     }
 }

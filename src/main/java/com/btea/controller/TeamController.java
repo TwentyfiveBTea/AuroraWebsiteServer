@@ -3,7 +3,7 @@ package com.btea.controller;
 import com.btea.dto.TeamDto;
 import com.btea.result.R;
 import com.btea.service.TeamService;
-import com.btea.utils.fileUtil;
+import com.btea.utils.FileUtil;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 /**
  * @Author: TwentyFiveBTea
@@ -29,9 +30,14 @@ public class TeamController {
     public R upload(@RequestParam("grade") String grade, @RequestParam("orientation") String orientation,
                     @RequestParam("name") String name, @RequestParam("positionOne") String positionOne,
                     @RequestParam("positionTwo") String positionTwo, @RequestParam("word") String word,
-                    MultipartFile file, HttpServletRequest request) {
+                    MultipartFile file, HttpServletRequest request, HttpSession session) {
 
-        fileUtil fileUtil = new fileUtil();
+        Object loginUser = session.getAttribute("loginUser");
+        if (loginUser == null) {
+            return R.notLoggedIn();
+        }
+
+        FileUtil fileUtil = new FileUtil();
         String fileName = fileUtil.upload(file, request);
 
         TeamDto teamDto = new TeamDto();

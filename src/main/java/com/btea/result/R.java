@@ -33,11 +33,19 @@ public class R implements Serializable {
         return new R(200, "操作成功", str);
     }
 
-    public static R Unauthorized() {
+    public static R notLoggedIn() {
         R r = new R();
-        r.setCode(ResultCodeEnum.UNAUTHORIZED.getCode());
-        r.setMsg(ResultCodeEnum.UNAUTHORIZED.getMsg());
-        r.setData(String.valueOf(ResultCodeEnum.UNAUTHORIZED));
+        r.setCode(ResultCodeEnum.BADREQUEST.getCode());
+        r.setMsg("你要先登陆哦~");
+        r.setData(String.valueOf(ResultCodeEnum.BADREQUEST));
+        return r;
+    }
+
+    public static R noFindUser() {
+        R r = new R();
+        r.setCode(ResultCodeEnum.BADREQUEST.getCode());
+        r.setMsg("用户不存在");
+        r.setData(String.valueOf(ResultCodeEnum.BADREQUEST));
         return r;
     }
 
@@ -52,7 +60,7 @@ public class R implements Serializable {
     public static R unprocessableEntity(String data) {
         R r = new R();
         r.setCode(ResultCodeEnum.UNPROCESSABLEENTITY.getCode());
-        r.setMsg(Unauthorized().getMsg());
+        r.setMsg(ResultCodeEnum.UNPROCESSABLEENTITY.getMsg());
         r.setData(data);
         return r;
     }

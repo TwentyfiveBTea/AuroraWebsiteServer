@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpSession;
+
 /**
  * @Author: TwentyFiveBTea
  * @Date: 2024/05/20 19:23
@@ -58,7 +60,11 @@ public class JoinusController {
 
     @ApiOperation("报名情况接口")
     @GetMapping("/settings/roster")
-    public R roster(@RequestParam("page") int page) {
+    public R roster(@RequestParam("page") int page, HttpSession session) {
+        Object loginUser = session.getAttribute("loginUser");
+        if (loginUser == null) {
+            return R.notLoggedIn();
+        }
         String member = joinusService.selectPageAllMember(page);
         return R.ok(member);
     }

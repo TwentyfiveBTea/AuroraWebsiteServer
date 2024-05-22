@@ -26,4 +26,13 @@ public class Administrator {
 
     @ApiModelProperty("密码")
     private String password;
+
+    @ApiModelProperty("token")
+    private String token;
+
+    @ApiModelProperty("创建token的时间")
+    private String now;
+
+    @ApiModelProperty("该token过期的时间")
+    private String expireTime;
 }
