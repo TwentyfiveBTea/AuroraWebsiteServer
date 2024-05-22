@@ -38,10 +38,10 @@ public class JoinusServiceImpl implements JoinusService {
     }
 
     @Override
-    public String selectAllMember(int page) {
-        Page<Joinus> joinusPage = new Page<>(page,10);
-        QueryWrapper<Joinus> queryWrapper  = new QueryWrapper<>();
-        queryWrapper.select("name","gender","grade","phone","email","majors","orientation","introduce");
+    public String selectPageAllMember(int page) {
+        Page<Joinus> joinusPage = new Page<>(page, 10);
+        QueryWrapper<Joinus> queryWrapper = new QueryWrapper<>();
+        queryWrapper.select("name", "gender", "grade", "phone", "email", "majors", "orientation", "introduce");
         Page<Joinus> info = joinusMapper.selectPage(joinusPage, queryWrapper);
         List<Joinus> member = info.getRecords();
 

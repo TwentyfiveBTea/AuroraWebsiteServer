@@ -22,7 +22,9 @@ public class R implements Serializable {
         this.data = data;
     }
 
-    public R(){}
+    public R() {
+    }
+
     public static R ok() {
         return new R(200, "操作成功", null);
     }
@@ -31,7 +33,7 @@ public class R implements Serializable {
         return new R(200, "操作成功", str);
     }
 
-    public static R Unauthorized(){
+    public static R Unauthorized() {
         R r = new R();
         r.setCode(ResultCodeEnum.UNAUTHORIZED.getCode());
         r.setMsg(ResultCodeEnum.UNAUTHORIZED.getMsg());
@@ -39,7 +41,7 @@ public class R implements Serializable {
         return r;
     }
 
-    public static R serverError(){
+    public static R serverError() {
         R r = new R();
         r.setCode(ResultCodeEnum.SERVERERROR.getCode());
         r.setMsg(ResultCodeEnum.SERVERERROR.getMsg());
@@ -47,7 +49,7 @@ public class R implements Serializable {
         return r;
     }
 
-    public static R unprocessableEntity(String data){
+    public static R unprocessableEntity(String data) {
         R r = new R();
         r.setCode(ResultCodeEnum.UNPROCESSABLEENTITY.getCode());
         r.setMsg(Unauthorized().getMsg());

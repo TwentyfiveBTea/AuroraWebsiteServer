@@ -15,7 +15,7 @@ import java.util.List;
 /**
  * @Author: TwentyFiveBTea
  * @Date: 2024/05/21 20:15
- * @Description: “展现团建风采” 接口实现类
+ * @Description: “团建” 接口实现类
  */
 @Service
 public class ActivityServiceImpl implements ActivityService {
@@ -36,7 +36,7 @@ public class ActivityServiceImpl implements ActivityService {
     }
 
     @Override
-    public String selectAllActivity(int page) {
+    public String selectPageAllActivity(int page) {
         Page<Activity> activityPage = new Page<>(page, 4);
         QueryWrapper<Activity> queryWrapper = new QueryWrapper<>();
         queryWrapper.select("theme", "time", "describes", "picture_one", "picture_two", "picture_three");

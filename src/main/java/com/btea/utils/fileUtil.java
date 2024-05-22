@@ -121,7 +121,7 @@ public class fileUtil {
             String originalFilename = file.getOriginalFilename();
             int index = originalFilename.lastIndexOf(".");
             String suffix = originalFilename.substring(index);
-            String fileName = "Aurora" + UUID.randomUUID().toString() + suffix;
+            String fileName = "Aurora" + UUID.randomUUID() + suffix;
             File dest = new File(dir, fileName);
 
             // 将参数file中的数据写入空文件中

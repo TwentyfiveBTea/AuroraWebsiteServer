@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 /**
  * @Author: TwentyFiveBTea
  * @Date: 2024/05/21 20:19
- * @Description: “展现团建风采” 数据传送对象实体类
+ * @Description: “团建” 数据传送对象实体类
  */
 @Data
 @AllArgsConstructor

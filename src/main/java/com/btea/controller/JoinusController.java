@@ -59,7 +59,7 @@ public class JoinusController {
     @ApiOperation("报名情况接口")
     @GetMapping("/settings/roster")
     public R roster(@RequestParam("page") int page) {
-        String member = joinusService.selectAllMember(page);
+        String member = joinusService.selectPageAllMember(page);
         return R.ok(member);
     }
 

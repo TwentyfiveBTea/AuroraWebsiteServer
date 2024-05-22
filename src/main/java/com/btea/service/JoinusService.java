@@ -11,6 +11,7 @@ public interface JoinusService {
 
     /**
      * 新成员报名
+     *
      * @param joinusDto
      * @return 插入数据的条数
      */
@@ -19,5 +20,5 @@ public interface JoinusService {
     /**
      * 分页查询所有已经报名的成员
      */
-    String selectAllMember(int page);
+    String selectPageAllMember(int page);
 }

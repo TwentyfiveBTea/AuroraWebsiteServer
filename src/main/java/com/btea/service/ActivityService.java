@@ -5,7 +5,7 @@ import com.btea.dto.ActivityDto;
 /**
  * @Author: TwentyFiveBTea
  * @Date: 2024/05/21 20:15
- * @Description: “展现团建风采” 接口
+ * @Description: “团建” 接口
  */
 public interface ActivityService {
     /**
@@ -22,5 +22,5 @@ public interface ActivityService {
      * @param page
      * @return 团建信息
      */
-    String selectAllActivity(int page);
+    String selectPageAllActivity(int page);
 }

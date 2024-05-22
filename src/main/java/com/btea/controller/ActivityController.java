@@ -56,7 +56,7 @@ public class ActivityController {
     @ApiOperation("团建活动展示接口")
     @GetMapping("/about/activity")
     public R activity(int page) {
-        String activity = activityService.selectAllActivity(page);
+        String activity = activityService.selectPageAllActivity(page);
         return R.ok(activity);
     }
 
