@@ -22,7 +22,7 @@ public class Achievement {
     private Integer id;
 
     @ApiModelProperty("组别")
-    private String group;
+    private String team;
 
     @ApiModelProperty("主题")
     private String topic;
