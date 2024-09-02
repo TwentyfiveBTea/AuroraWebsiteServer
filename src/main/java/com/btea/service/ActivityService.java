@@ -2,6 +2,9 @@ package com.btea.service;
 
 import com.btea.dto.ActivityDto;
 
+import java.util.List;
+import java.util.Map;
+
 /**
  * @Author: TwentyFiveBTea
  * @Date: 2024/05/21 20:15
@@ -17,10 +20,9 @@ public interface ActivityService {
     int insertNewActivity(ActivityDto activityDto);
 
     /**
-     * 分页查询所有团建信息
+     * 查询所有团建信息
      *
-     * @param page
      * @return 团建信息
      */
-    String selectPageAllActivity(int page);
+    List<Map<String, Object>> selectAllActivity();
 }

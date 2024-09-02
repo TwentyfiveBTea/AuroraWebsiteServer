@@ -2,6 +2,9 @@ package com.btea.service;
 
 import com.btea.dto.TeamDto;
 
+import java.util.List;
+import java.util.Map;
+
 /**
  * @Author: TwentyFiveBTea
  * @Date: 2024/05/22 15:19
@@ -23,5 +26,5 @@ public interface TeamService {
      * @param orientation
      * @return 返回对应的照片
      */
-    String selectPhotoByGradeAndOrientation(String grade, String orientation);
+    List<Map<String, Object>> selectPhotoByGradeAndOrientation(String grade, String orientation);
 }

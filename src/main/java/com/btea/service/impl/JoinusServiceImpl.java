@@ -10,7 +10,9 @@ import com.btea.service.JoinusService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @Author: TwentyFiveBTea
@@ -38,13 +40,10 @@ public class JoinusServiceImpl implements JoinusService {
     }
 
     @Override
-    public String selectPageAllMember(int page) {
-        Page<Joinus> joinusPage = new Page<>(page, 10);
+    public List<Map<String, Object>> selectAllMember() {
         QueryWrapper<Joinus> queryWrapper = new QueryWrapper<>();
         queryWrapper.select("name", "gender", "grade", "phone", "email", "majors", "orientation", "introduce");
-        Page<Joinus> info = joinusMapper.selectPage(joinusPage, queryWrapper);
-        List<Joinus> member = info.getRecords();
 
-        return JSON.toJSONString(member);
+        return joinusMapper.selectMaps(queryWrapper);
     }
 }

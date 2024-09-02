@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @Author: TwentyFiveBTea
@@ -35,13 +36,13 @@ public class TeamServiceImpl implements TeamService {
     }
 
     @Override
-    public String selectPhotoByGradeAndOrientation(String grade, String orientation) {
+    public List<Map<String, Object>> selectPhotoByGradeAndOrientation(String grade, String orientation) {
         QueryWrapper<Team> queryWrapper = new QueryWrapper<>();
         queryWrapper.select("grade", "orientation", "name", "position_one", "position_two", "word", "picture")
                 .eq("grade", grade)
                 .eq("orientation", orientation);
-        List<Team> team = teamMapper.selectList(queryWrapper);
 
-        return JSON.toJSONString(team);
+
+        return teamMapper.selectMaps(queryWrapper);
     }
 }

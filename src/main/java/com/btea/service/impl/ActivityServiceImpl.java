@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @Author: TwentyFiveBTea
@@ -36,13 +37,11 @@ public class ActivityServiceImpl implements ActivityService {
     }
 
     @Override
-    public String selectPageAllActivity(int page) {
-        Page<Activity> activityPage = new Page<>(page, 4);
+    public List<Map<String, Object>> selectAllActivity() {
         QueryWrapper<Activity> queryWrapper = new QueryWrapper<>();
         queryWrapper.select("theme", "time", "describes", "picture_one", "picture_two", "picture_three");
-        Page<Activity> act = activityMapper.selectPage(activityPage, queryWrapper);
-        List<Activity> activity = act.getRecords();
+        activityMapper.selectMaps(queryWrapper);
 
-        return JSON.toJSONString(activity);
+        return activityMapper.selectMaps(queryWrapper);
     }
 }

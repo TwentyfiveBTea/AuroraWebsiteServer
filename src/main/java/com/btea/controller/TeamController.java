@@ -6,20 +6,20 @@ import com.btea.service.TeamService;
 import com.btea.utils.FileUtil;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.List;
+import java.util.Map;
 
 /**
  * @Author: TwentyFiveBTea
  * @Date: 2024/05/22 15:53
  * @Description: “团队照片” 控制层
  */
+@CrossOrigin
 @RestController
 public class TeamController {
     @Autowired
@@ -65,8 +65,8 @@ public class TeamController {
     @ApiOperation("团队接口")
     @GetMapping("/about/member")
     public R member(@RequestParam("grade") String grade, @RequestParam("orientation") String orientation) {
-        String info = teamService.selectPhotoByGradeAndOrientation(grade, orientation);
-        return R.ok(info);
-    }
+        List<Map<String, Object>> data = teamService.selectPhotoByGradeAndOrientation(grade, orientation);
 
+        return R.data(data);
+    }
 }

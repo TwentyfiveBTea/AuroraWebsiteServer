@@ -3,7 +3,10 @@ package com.btea.result;
 import lombok.Data;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @Author: TwentyFiveBTea
@@ -12,40 +15,41 @@ import java.util.List;
  */
 @Data
 public class R implements Serializable {
+    // 返回码
     private int code;
+    // 返回信息
     private String msg;
-    private String data;
 
-    public R(int code, String msg, String data) {
-        this.code = code;
-        this.msg = msg;
-        this.data = data;
-    }
+    // 返回数据
+    private List<Map<String, Object>> data = new ArrayList<>();
 
-    public R() {
+    private R() {
     }
 
     public static R ok() {
-        return new R(200, "操作成功", null);
+        R r = new R();
+        r.setCode(200);
+        r.setMsg("操作成功");
+        return r;
     }
 
-    public static R ok(String str) {
-        return new R(200, "操作成功", str);
+    public static R data(List<Map<String, Object>> data) {
+        R r = new R();
+        r.setData(data);
+        return r;
     }
 
     public static R notLoggedIn() {
         R r = new R();
         r.setCode(ResultCodeEnum.BADREQUEST.getCode());
-        r.setMsg("你要先登陆哦~");
-        r.setData(String.valueOf(ResultCodeEnum.BADREQUEST));
+        r.setMsg(ResultCodeEnum.BADREQUEST.getMsg());
         return r;
     }
 
     public static R noFindUser() {
         R r = new R();
         r.setCode(ResultCodeEnum.BADREQUEST.getCode());
-        r.setMsg("用户不存在");
-        r.setData(String.valueOf(ResultCodeEnum.BADREQUEST));
+        r.setMsg(ResultCodeEnum.USERNOTEXIST.getMsg());
         return r;
     }
 
@@ -53,11 +57,10 @@ public class R implements Serializable {
         R r = new R();
         r.setCode(ResultCodeEnum.SERVERERROR.getCode());
         r.setMsg(ResultCodeEnum.SERVERERROR.getMsg());
-        r.setData(String.valueOf(ResultCodeEnum.SERVERERROR));
         return r;
     }
 
-    public static R unprocessableEntity(String data) {
+    public static R unprocessableEntity(List<Map<String, Object>> data) {
         R r = new R();
         r.setCode(ResultCodeEnum.UNPROCESSABLEENTITY.getCode());
         r.setMsg(ResultCodeEnum.UNPROCESSABLEENTITY.getMsg());

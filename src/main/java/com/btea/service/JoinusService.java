@@ -2,6 +2,9 @@ package com.btea.service;
 
 import com.btea.dto.JoinusDto;
 
+import java.util.List;
+import java.util.Map;
+
 /**
  * @Author: TwentyFiveBTea
  * @Date: 2024/05/20 17:31
@@ -18,7 +21,7 @@ public interface JoinusService {
     int insertMember(JoinusDto joinusDto);
 
     /**
-     * 分页查询所有已经报名的成员
+     * 查询所有已经报名的成员
      */
-    String selectPageAllMember(int page);
+    List<Map<String, Object>> selectAllMember();
 }

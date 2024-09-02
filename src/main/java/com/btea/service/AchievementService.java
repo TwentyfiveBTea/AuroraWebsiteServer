@@ -2,6 +2,9 @@ package com.btea.service;
 
 import com.btea.dto.AchievementDto;
 
+import java.util.List;
+import java.util.Map;
+
 /**
  * @Author: TwentyFiveBTea
  * @Date: 2024/05/22 13:36
@@ -17,11 +20,11 @@ public interface AchievementService {
     int insertNewAchievement(AchievementDto achievementDto);
 
     /**
-     * 根据组别分页查询对应成就
+     * 根据组别查询对应成就
      *
      * @param team
      * @return 该组成就
      */
-    String selectPageAchievementByGroup(String team, int page);
+    List<Map<String, Object>> selectAchievementByGroup(String team);
 
 }

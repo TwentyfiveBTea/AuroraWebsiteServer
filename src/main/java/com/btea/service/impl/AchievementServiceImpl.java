@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @Author: TwentyFiveBTea
@@ -35,13 +36,10 @@ public class AchievementServiceImpl implements AchievementService {
     }
 
     @Override
-    public String selectPageAchievementByGroup(String team, int page) {
-        Page<Achievement> achievementPage = new Page<>(page, 5);
+    public List<Map<String, Object>> selectAchievementByGroup(String team) {
         QueryWrapper<Achievement> queryWrapper = new QueryWrapper<>();
         queryWrapper.select("topic", "synopsis", "picture_one", "picture_two").eq("team", team);
-        Page<Achievement> data = achievementMapper.selectPage(achievementPage, queryWrapper);
-        List<Achievement> achievements = data.getRecords();
 
-        return JSON.toJSONString(achievements);
+        return achievementMapper.selectMaps(queryWrapper);
     }
 }

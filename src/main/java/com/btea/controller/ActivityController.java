@@ -6,20 +6,20 @@ import com.btea.service.ActivityService;
 import com.btea.utils.FileUtil;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.List;
+import java.util.Map;
 
 /**
  * @Author: TwentyFiveBTea
  * @Date: 2024/05/21 20:28
  * @Description: “团建活动” 控制层
  */
+@CrossOrigin
 @RestController
 public class ActivityController {
     @Autowired
@@ -61,9 +61,10 @@ public class ActivityController {
 
     @ApiOperation("团建活动展示接口")
     @GetMapping("/about/activity")
-    public R activity(int page) {
-        String activity = activityService.selectPageAllActivity(page);
-        return R.ok(activity);
+    public R activity(@RequestParam("page") int page) {
+        List<Map<String, Object>> data = activityService.selectAllActivity();
+
+        return R.data(data);
     }
 
 }

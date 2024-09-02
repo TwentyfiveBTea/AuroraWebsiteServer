@@ -5,6 +5,7 @@ import com.btea.result.R;
 import com.btea.service.AuthService;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,6 +17,7 @@ import javax.servlet.http.HttpSession;
  * @Date: 2024/05/22 18:55
  * @Description: 登录控制层
  */
+@CrossOrigin
 @RestController
 public class LoginController {
     @Autowired
