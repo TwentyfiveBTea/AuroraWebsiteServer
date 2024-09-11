@@ -41,14 +41,14 @@ public class R implements Serializable {
 
     public static R notLoggedIn() {
         R r = new R();
-        r.setCode(ResultCodeEnum.BADREQUEST.getCode());
-        r.setMsg(ResultCodeEnum.BADREQUEST.getMsg());
+        r.setCode(ResultCodeEnum.FORBIDDEN.getCode());
+        r.setMsg(ResultCodeEnum.FORBIDDEN.getMsg());
         return r;
     }
 
     public static R noFindUser() {
         R r = new R();
-        r.setCode(ResultCodeEnum.BADREQUEST.getCode());
+        r.setCode(ResultCodeEnum.FORBIDDEN.getCode());
         r.setMsg(ResultCodeEnum.USERNOTEXIST.getMsg());
         return r;
     }
