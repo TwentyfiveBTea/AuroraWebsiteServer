@@ -32,13 +32,6 @@ public class R implements Serializable {
         return r;
     }
 
-    public static R tokenIsExpired() {
-        R r = new R();
-        r.setCode(ResultCodeEnum.UNAUTHORIZED.getCode());
-        r.setMsg(ResultCodeEnum.UNAUTHORIZED.getMsg());
-        return r;
-    }
-
     public static R data(List<Map<String, Object>> data) {
         R r = new R();
         r.setCode(200);
