@@ -4,13 +4,13 @@ import com.btea.dto.TeamDto;
 import com.btea.result.R;
 import com.btea.service.TeamService;
 import com.btea.utils.FileUtil;
+import com.btea.utils.TokenUtil;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 import java.util.List;
 import java.util.Map;
 
@@ -26,16 +26,11 @@ public class TeamController {
     private TeamService teamService;
 
     @ApiOperation("上传照片接口")
-    @PostMapping("/settings/upload")
+    @PostMapping("/imadministrator/settings/upload")
     public R upload(@RequestParam("grade") String grade, @RequestParam("orientation") String orientation,
                     @RequestParam("name") String name, @RequestParam("positionOne") String positionOne,
                     @RequestParam("positionTwo") String positionTwo, @RequestParam("word") String word,
-                    MultipartFile file, HttpServletRequest request, HttpSession session) {
-
-        Object loginUser = session.getAttribute("loginUser");
-        if (loginUser == null) {
-            return R.notLoggedIn();
-        }
+                    MultipartFile file, HttpServletRequest request) {
 
         FileUtil fileUtil = new FileUtil();
         String fileName = fileUtil.upload(file, request);

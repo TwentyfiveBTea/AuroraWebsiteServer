@@ -11,6 +11,7 @@ import java.util.Map;
  * @Description: “团建” 接口
  */
 public interface ActivityService {
+
     /**
      * 上传团建信息
      *

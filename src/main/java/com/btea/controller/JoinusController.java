@@ -1,5 +1,6 @@
 package com.btea.controller;
 
+
 import com.btea.dto.JoinusDto;
 import com.btea.result.R;
 import com.btea.service.JoinusService;
@@ -7,8 +8,9 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpSession;
-import java.util.*;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
 
 /**
  * @Author: TwentyFiveBTea
@@ -67,14 +69,9 @@ public class JoinusController {
     }
 
     @ApiOperation("报名情况接口")
-    @GetMapping("/settings/roster")
-    public R roster(HttpSession session) {
-        Object loginUser = session.getAttribute("loginUser");
-        if (loginUser == null) {
-            return R.notLoggedIn();
-        }
+    @GetMapping("/imadministrator/settings/roster")
+    public R roster() {
         List<Map<String, Object>> data = joinusService.selectAllMember();
-
         return R.data(data);
     }
 }

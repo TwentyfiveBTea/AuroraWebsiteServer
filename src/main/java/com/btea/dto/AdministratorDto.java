@@ -13,9 +13,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class AdministratorDto {
-    // 账号
-    private String account;
-
-    // 密码
-    private String password;
+//    // 账号
+//    private String account;
+//
+//    // 密码
+//    private String password;
 }

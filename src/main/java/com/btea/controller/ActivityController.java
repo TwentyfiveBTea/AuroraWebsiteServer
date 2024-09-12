@@ -4,13 +4,13 @@ import com.btea.dto.ActivityDto;
 import com.btea.result.R;
 import com.btea.service.ActivityService;
 import com.btea.utils.FileUtil;
+
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 import java.util.List;
 import java.util.Map;
 
@@ -26,17 +26,12 @@ public class ActivityController {
     private ActivityService activityService;
 
     @ApiOperation("展现团队风采接口")
-    @PostMapping("/settings/show")
+    @PostMapping("/imadministrator/settings/show")
     public R show(@RequestParam("theme") String theme, @RequestParam("time") String time,
                   @RequestParam("describes") String describes,
                   @RequestParam("file1") MultipartFile file1,
                   @RequestParam("file2") MultipartFile file2,
-                  @RequestParam("file3") MultipartFile file3, HttpServletRequest request, HttpSession session) {
-
-        Object loginUser = session.getAttribute("loginUser");
-        if (loginUser == null) {
-            return R.notLoggedIn();
-        }
+                  @RequestParam("file3") MultipartFile file3, HttpServletRequest request) {
 
         FileUtil fileUtil = new FileUtil();
         String fileName1 = fileUtil.upload(file1, request);
@@ -61,9 +56,8 @@ public class ActivityController {
 
     @ApiOperation("团建活动展示接口")
     @GetMapping("/about/activity")
-    public R activity(@RequestParam("page") int page) {
+    public R activity() {
         List<Map<String, Object>> data = activityService.selectAllActivity();
-
         return R.data(data);
     }
 

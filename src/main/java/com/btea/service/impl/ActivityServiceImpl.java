@@ -40,7 +40,6 @@ public class ActivityServiceImpl implements ActivityService {
     public List<Map<String, Object>> selectAllActivity() {
         QueryWrapper<Activity> queryWrapper = new QueryWrapper<>();
         queryWrapper.select("theme", "time", "describes", "picture_one", "picture_two", "picture_three");
-        activityMapper.selectMaps(queryWrapper);
 
         return activityMapper.selectMaps(queryWrapper);
     }

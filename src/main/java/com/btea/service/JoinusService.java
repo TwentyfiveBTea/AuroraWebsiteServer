@@ -22,6 +22,8 @@ public interface JoinusService {
 
     /**
      * 查询所有已经报名的成员
+     *
+     * @return 所有报名人的信息
      */
     List<Map<String, Object>> selectAllMember();
 }
