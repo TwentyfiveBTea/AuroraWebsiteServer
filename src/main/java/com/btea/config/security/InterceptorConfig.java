@@ -19,19 +19,19 @@ public class InterceptorConfig implements WebMvcConfigurer {
         return new AuthInterceptor();
     }
 
-    @Override
-    public void addInterceptors(InterceptorRegistry registry) {
-        // 放行路径
-        ArrayList<String> patterns = new ArrayList<>();
-        patterns.add("/home/**");
-        patterns.add("/about/**");
-        patterns.add("/join");
-        patterns.add("/settings");
-        patterns.add("/settings/login");
-
-        registry.addInterceptor(authInterceptor())
-                .addPathPatterns("/**")
-                .excludePathPatterns(patterns);
-
-    }
+//    @Override
+//    public void addInterceptors(InterceptorRegistry registry) {
+//        // 放行路径
+//        ArrayList<String> patterns = new ArrayList<>();
+//        patterns.add("/home/**");
+//        patterns.add("/about/**");
+//        patterns.add("/join");
+//        patterns.add("/settings");
+//        patterns.add("/settings/roster");
+//        patterns.add("/settings/login");
+//
+//        registry.addInterceptor(authInterceptor())
+//                .addPathPatterns("/**")
+//                .excludePathPatterns(patterns);
+//    }
 }

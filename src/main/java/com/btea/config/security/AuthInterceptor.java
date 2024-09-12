@@ -14,14 +14,14 @@ import javax.servlet.http.HttpSession;
  * @Description: 拦截器
  */
 public class AuthInterceptor implements HandlerInterceptor {
-    @Autowired
-    private AuthService authService;
+//    @Autowired
+//    private AuthService authService;
 
-    @Override
-    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        HttpSession session = request.getSession();
-        Object loginUser = session.getAttribute("loginUser");
-        // 判断是否存在 session
-        return loginUser != null;
-    }
+//    @Override
+//    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+//        HttpSession session = request.getSession();
+//        Object loginUser = session.getAttribute("loginUser");
+//        // 判断是否存在 session
+//        return loginUser != null;
+//    }
 }

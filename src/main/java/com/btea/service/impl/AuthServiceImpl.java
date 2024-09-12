@@ -16,21 +16,21 @@ import java.util.UUID;
  * @Date: 2024/05/22 17:12
  * @Description: 拦截器接口实现类
  */
-@Service
-public class AuthServiceImpl implements AuthService {
-    @Autowired
-    private AdministratorMapper administratorMapper;
-
-    @Override
-    public AdministratorDto selectAchievementByAccount(String account) {
-        QueryWrapper<Administrator> queryWrapper = new QueryWrapper<>();
-        queryWrapper.select("password").eq("account", account);
-        Administrator administrator = administratorMapper.selectOne(queryWrapper);
-
-        AdministratorDto administratorDto = new AdministratorDto();
-        administratorDto.setAccount(administrator.getAccount());
-        administratorDto.setPassword(administrator.getPassword());
-
-        return administratorDto;
-    }
-}
+//@Service
+//public class AuthServiceImpl implements AuthService {
+//    @Autowired
+//    private AdministratorMapper administratorMapper;
+//
+//    @Override
+//    public AdministratorDto selectAchievementByAccount(String account) {
+//        QueryWrapper<Administrator> queryWrapper = new QueryWrapper<>();
+//        queryWrapper.select("password").eq("account", account);
+//        Administrator administrator = administratorMapper.selectOne(queryWrapper);
+//
+//        AdministratorDto administratorDto = new AdministratorDto();
+//        administratorDto.setAccount(administrator.getAccount());
+//        administratorDto.setPassword(administrator.getPassword());
+//
+//        return administratorDto;
+//    }
+//}
