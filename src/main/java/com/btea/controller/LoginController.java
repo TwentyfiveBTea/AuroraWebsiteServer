@@ -1,14 +1,6 @@
 package com.btea.controller;
 
-import com.btea.dto.AdministratorDto;
-import com.btea.result.R;
-import com.btea.service.AuthService;
-import com.btea.utils.TokenUtil;
-import io.swagger.annotations.ApiOperation;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import javax.servlet.http.HttpSession;
 
 /**
  * @Author: TwentyFiveBTea

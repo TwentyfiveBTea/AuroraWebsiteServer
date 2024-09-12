@@ -4,7 +4,6 @@ import com.btea.dto.AchievementDto;
 import com.btea.result.R;
 import com.btea.service.AchievementService;
 import com.btea.utils.FileUtil;
-import com.btea.utils.TokenUtil;
 
 
 import io.swagger.annotations.ApiOperation;
