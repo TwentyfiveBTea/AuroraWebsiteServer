@@ -1,12 +1,6 @@
 package com.btea.config.security;
 
-import com.btea.service.AuthService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.HandlerInterceptor;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  * @Author: TwentyFiveBTea
