@@ -4,7 +4,6 @@ import lombok.Data;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -33,8 +32,23 @@ public class R implements Serializable {
         return r;
     }
 
+    public static R token(String token) {
+        R r = new R();
+        r.setCode(200);
+        r.setMsg(token);
+        return r;
+    }
+
+    public static R tokenIsExpired() {
+        R r = new R();
+        r.setCode(ResultCodeEnum.UNAUTHORIZED.getCode());
+        r.setMsg(ResultCodeEnum.UNAUTHORIZED.getMsg());
+        return r;
+    }
+
     public static R data(List<Map<String, Object>> data) {
         R r = new R();
+        r.setCode(200);
         r.setData(data);
         return r;
     }

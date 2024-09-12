@@ -10,8 +10,9 @@ import lombok.Getter;
 @Getter
 public enum ResultCodeEnum {
     SUCCESS("true", 200, "操作成功"),
-    FORBIDDEN("false", 403, "你要先登陆哦~"),
     USERNOTEXIST("false", 400, "用户不存在"),
+    UNAUTHORIZED("false", 401, "Token过期咯，要重新登录哦~"),
+    FORBIDDEN("false", 403, "你要先登陆哦~"),
     UNPROCESSABLEENTITY("false", 422, "传入数据有误"),
     SERVERERROR("false", 500, "寄咯，后端炸了，请联系相关人员");
 
