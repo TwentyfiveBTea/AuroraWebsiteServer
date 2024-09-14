@@ -47,7 +47,7 @@ public class JoinusController {
             );
             return R.unprocessableEntity(data);
             // 判断手机号格式
-        } else if (!joinusDto.getPhone().matches("^1[3|4|5|7|8][0-9]{9}$")) {
+        } else if (!joinusDto.getPhone().matches("^1[3-9]\\d{9}$")) {
             List<Map<String, Object>> data = Collections.singletonList(
                     Collections.singletonMap("result", "你这手机号不对吧...")
             );
